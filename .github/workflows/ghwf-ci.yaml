@@ -57,7 +57,7 @@ jobs:
             # Enabled types
             type=semver,pattern=raw,enable=${{ !startsWith(github.ref, 'refs/tags/v') }}
             type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'master') }}
-            type=raw,value=dev,enable=${{ github.ref == format('refs/heads/{0}', 'develop') }}
+            type=raw,value=stable,enable=${{ github.ref == format('refs/heads/{0}', 'develop') }}
             type=ref,event=tag
             type=sha
             # Disabled types
