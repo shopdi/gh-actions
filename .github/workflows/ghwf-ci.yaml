@@ -9,6 +9,11 @@ on:
       environment:
         required: true
         type: string
+    secrets:
+      dockerhub_username:
+        required: true
+      dockerhub_token:
+        required: true
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -37,9 +42,9 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v2
         with:
-          # registry: ${{ env.REGISTRY }}
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.dockerhub_username }}
+          password: ${{ secrets.dockerhub_token }}
       
       # Extract metadata (tags, labels) for Docker
       # https://github.com/docker/metadata-action
