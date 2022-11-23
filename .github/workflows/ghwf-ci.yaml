@@ -9,9 +9,6 @@ on:
       environment:
         required: true
         type: string
-      dockerhub:
-        required: true
-        type: string
 
 env:
   # Use docker.io for Docker Hub if empty
